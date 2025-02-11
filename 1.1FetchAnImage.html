@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+    Coding Train Javascript API and Data Tutorials
+    https://www.youtube.com/watch?v=tc8DU14qX6I&list=PLRqwX-V7Uu6YxDKpFzf_2D84p0cyk4T7X&index=3
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Train JavaScript API and Data Tutorial</title>
+</head>
+<body>
+
+    <h1>Hello this is my page!</h1>
+    <img src="" ID="rainbow" width="100" length="100">
+
+    <script>
+        console.log("about to fetch an image");
+
+        // fetch rainbow and catch errors
+        catchRainbow().catch(error =>{
+            console.error(error);
+        });
+
+        // Function fetches rainbow.jpg and turns into blob format then displays in rainbow element asynchronously
+        async function catchRainbow() {
+            const response = await fetch('rainbow.jpg');
+            const blob = await response.blob();
+            document.getElementById('rainbow').src = URL.createObjectURL(blob);
+        }
+    </script>
+</body>
+</html>
